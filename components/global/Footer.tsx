@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
           
           {/* Brand Section */}
           <div className="flex flex-col">
-            <Link to="/" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <img 
                 src="/logo-white-aero.png" 
                 alt="SkyblueAero Logo" 
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
               ].map((link) => (
                 <Link 
                   key={link.name} 
-                  to={link.path} 
+                  href={link.path} 
                   className="text-sm text-white hover:text-[#EF7D05] hover:translate-x-1 transition-all duration-300 w-fit"
                 >
                   {link.name}
@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
               ].map((link) => (
                 <Link 
                   key={link.name} 
-                  to={link.path} 
+                  href={link.path} 
                   className="text-sm text-white hover:text-[#EF7D05] hover:translate-x-1 transition-all duration-300 w-fit"
                 >
                   {link.name}
@@ -115,10 +115,10 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} Skyblue Aero. All rights reserved. Powered by Outright Creators
           </p>
           <div className="flex gap-6 text-xs text-white font-medium tracking-wide">
-            <Link to="/privacy" className="hover:text-[#EF7D05] transition-colors">
+            <Link href="/privacy" className="hover:text-[#EF7D05] transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="hover:text-[#EF7D05] transition-colors">
+            <Link href="/terms" className="hover:text-[#EF7D05] transition-colors">
               Terms of Service
             </Link>
           </div>

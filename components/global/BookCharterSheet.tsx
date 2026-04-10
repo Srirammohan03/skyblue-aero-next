@@ -56,6 +56,7 @@ const BookCharterSheet = ({
   const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -215,8 +216,9 @@ const BookCharterSheet = ({
       }
     );
 
-    toast.success("Charter request submitted ✈️");
-
+    // toast.success("Charter request submitted ✈️");
+setShowSuccessModal(true);
+onClose();
     setFormValues(initialValues);
     setHasSubmitted(false);
 
@@ -556,6 +558,58 @@ const BookCharterSheet = ({
           </>
         )}
       </AnimatePresence>
+      <AnimatePresence>
+  {showSuccessModal && (
+    <>
+      {/* Overlay */}
+      <motion.div
+        className="fixed inset-0 z-[10000] bg-black/50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      />
+
+      {/* Modal */}
+      <motion.div
+        className="fixed inset-0 z-[10001] flex items-center justify-center px-4"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="relative w-full max-w-md rounded-2xl bg-white p-6 text-center shadow-xl">
+          
+          {/* Close Button */}
+          <button
+            onClick={() => setShowSuccessModal(false)}
+            className="absolute right-3 top-3 rounded-full p-1 hover:bg-gray-100"
+          >
+            <X size={18} />
+          </button>
+
+          {/* Content */}
+          <h3 className="text-xl font-semibold mb-2">
+            ✈️ Thank You!
+          </h3>
+
+          <p className="text-gray-600 text-sm md:text-base">
+            Your charter request has been submitted successfully.
+            <br />
+            We will connect with you soon.
+          </p>
+
+          {/* CTA */}
+          <button
+            onClick={() => setShowSuccessModal(false)}
+            className="mt-5 rounded-full bg-[#2E2523] px-5 py-2 text-white hover:scale-105 transition"
+          >
+            Close
+          </button>
+        </div>
+      </motion.div>
+    </>
+  )}
+</AnimatePresence>
 
       <style>{`
         .no-scrollbar::-webkit-scrollbar {

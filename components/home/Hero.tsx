@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 // Videos
-import falcondesk from "/images/hero-desk.mp4";
-import falconmob from "/images/hero-mob.mp4";
+// import falcondesk from "@/images/hero-desk.mp4";
+// import falconmob from "@/images/hero-mob.mp4";
 
 interface HeroProps {
   isLoaded: boolean;
@@ -33,7 +33,7 @@ const Hero: React.FC<HeroProps> = ({ isLoaded }) => {
         <video
           ref={desktopVideoRef}
           className="hidden md:block w-full h-full object-cover"
-          src={falcondesk}
+          src={"/images/hero-desk.mp4"}
           loop
           muted
           playsInline
@@ -44,7 +44,7 @@ const Hero: React.FC<HeroProps> = ({ isLoaded }) => {
         <video
           ref={mobileVideoRef}
           className="block md:hidden w-full h-full object-cover"
-          src={falconmob}
+          src={"/images/hero-mob.mp4"}
           loop
           muted
           playsInline

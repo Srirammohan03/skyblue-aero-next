@@ -1,14 +1,15 @@
 "use client";
+import Image from "next/image";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useEffect } from "react";
 import Link from "next/link";
-import heroImg from "@/assets/hero-jet.jpg";
-import interiorImg from "@/assets/jet-interior.jpg";
-import tarmacImg from "@/assets/jet-tarmac.jpg";
-import aerialImg from "@/assets/jet-aerial.jpg";
+import heroImg from "/images/hero-jet.jpg";
+import interiorImg from "/images/jet-interior.jpg";
+import tarmacImg from "/images/jet-tarmac.jpg";
+import aerialImg from "/images/jet-aerial.jpg";
 import SplitTextReveal from "@/components/motion/SplitTextReveal";
 import FadeUpStagger from "@/components/motion/FadeUpStagger";
 import ClipReveal from "@/components/motion/ClipReveal";
@@ -31,32 +32,32 @@ import FalconTour from "@/components/home/FalconTour";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const services = [
-  {
-    title: "Air Charters",
-    desc: "Bespoke private flight solutions tailored to your schedule, anywhere in the world.",
-    path: "/charters",
-    image: heroImg,
-  },
-  {
-    title: "Aircraft Brokerage",
-    desc: "Expert acquisition and sales advisory for discerning aircraft buyers and sellers.",
-    path: "/brokerage",
-    image: tarmacImg,
-  },
-  {
-    title: "Trip Support",
-    desc: "Comprehensive international flight planning, permits, and ground handling.",
-    path: "/trip-support",
-    image: aerialImg,
-  },
-  {
-    title: "Maintenance",
-    desc: "Full-spectrum MRO services and aircraft management programmes.",
-    path: "/maintenance",
-    image: interiorImg,
-  },
-];
+// const services = [
+//   {
+//     title: "Air Charters",
+//     desc: "Bespoke private flight solutions tailored to your schedule, anywhere in the world.",
+//     path: "/charters",
+//     image: heroImg,
+//   },
+//   {
+//     title: "Aircraft Brokerage",
+//     desc: "Expert acquisition and sales advisory for discerning aircraft buyers and sellers.",
+//     path: "/brokerage",
+//     image: tarmacImg,
+//   },
+//   {
+//     title: "Trip Support",
+//     desc: "Comprehensive international flight planning, permits, and ground handling.",
+//     path: "/trip-support",
+//     image: aerialImg,
+//   },
+//   {
+//     title: "Maintenance",
+//     desc: "Full-spectrum MRO services and aircraft management programmes.",
+//     path: "/maintenance",
+//     image: interiorImg,
+//   },
+// ];
 interface HomeProps {
   isLoaded: boolean;
 }

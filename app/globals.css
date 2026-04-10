@@ -1,10 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+
+  --color-brand-sky: #87CEEB;
+  --color-brand-navy: #1470A9;
+  --color-brand-royal: #5882A5;
+  --color-brand-gold: #EF7D05;
+  --color-brand-cream: #FFF9F0;
+  --color-brand-cloud: #F3F4F6;
+  --color-brand-obsidian: #0F172A;
+
+  /* ✅ FONTS */
+  --font-display: 'Venus Rising', Georgia, serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+
+   /* ✅ SHADCN COLORS */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -117,14 +132,194 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* @layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
+  }
+} */
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
   }
+
   html {
-    @apply font-sans;
+    font-family: var(--font-body);
   }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+  h2{
+    font-size: 34px;
+   
+  }
+  h3{
+    font-size: 24px;
+  }
+
+}
+
+
+/* ✅ KEYFRAMES */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-20px) translateX(20px); }
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+@keyframes underline-expand {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ✅ ANIMATION UTILITIES */
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-grain {
+  animation: grain 8s steps(10) infinite;
+}
+
+.animate-underline-expand {
+  animation: underline-expand 0.3s ease-out forwards;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Grain overlay texture */
+.grain-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+  animation: grain 8s steps(10) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain-overlay {
+    animation: none;
+  }
+}
+
+/* Gold underline input focus effect */
+.gold-underline-input {
+  @apply border-b-2 border-brand-obsidian/20 bg-transparent outline-none transition-colors;
+}
+
+.gold-underline-input:focus {
+  @apply border-brand-gold;
+}
+
+/* Clip path reveal utility */
+.clip-reveal {
+  clip-path: inset(100% 0 0 0);
+}
+
+.clip-revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Fluid typography */
+.text-fluid-display {
+  font-size: clamp(2.5rem, 6vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.text-fluid-heading {
+  font-size: clamp(1.75rem, 4vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.text-fluid-subheading {
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+@font-face {
+    font-family: 'NeubankNFW01';
+    src: url('/fonts/NeubankNFW01-Bold.woff2') format('woff2'),
+        url('/fonts/NeubankNFW01-Bold.woff') format('woff'),
+        url('/fonts/NeubankNFW01-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+ @font-face {
+    font-family: 'Venus Rising';
+    src: url('/font/VenusRising-Regular.woff2') format('woff2'),
+        url('/font/VenusRising-Regular.woff') format('woff'),
+        url('/font/VenusRising-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }

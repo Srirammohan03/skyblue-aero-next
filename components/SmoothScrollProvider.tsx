@@ -2,11 +2,11 @@
 
 import { ReactNode, useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 
 const SmoothScrollProvider = ({ children }: { children: ReactNode }) => {
   const lenisRef = useRef<Lenis | null>(null);
-  const location = useLocation();
+  const pathname = usePathname();
 
   // ✅ INIT LENIS ONLY ONCE
   useEffect(() => {
@@ -37,7 +37,7 @@ const SmoothScrollProvider = ({ children }: { children: ReactNode }) => {
         immediate: true,
       });
     }
-  }, [location.pathname]);
+  }, [pathname]);
 
   return <>{children}</>;
 };

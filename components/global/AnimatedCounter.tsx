@@ -55,7 +55,7 @@ const AnimatedCounter = ({
 
   const responsiveIcon =
     icon && isValidElement(icon)
-      ? cloneElement(icon as React.ReactElement, {
+      ? cloneElement(icon as React.ReactElement<any>, {
           className: `w-[90px] h-[90px] md:w-[120px] md:h-[120px] xl:w-[180px] xl:h-[180px] ${
             (icon.props as { className?: string }).className || ""
           }`,
