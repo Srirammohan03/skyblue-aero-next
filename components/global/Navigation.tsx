@@ -186,17 +186,17 @@ const Navigation = ({
             ))}
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: navLinks.length * 0.05 }}
-            >
-              <button
-                href="/contact"
-                className="mt-4 bg-orange-500 text-brand-obsidian px-8 py-3 font-body text-sm tracking-wide"
-              >
-                Reach Us
-              </button>
-            </motion.div>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: navLinks.length * 0.05 }}
+>
+  <Link
+    href="/contact"
+    className="inline-block mt-4 bg-orange-500 text-brand-obsidian px-8 py-3 font-body text-sm tracking-wide"
+  >
+    Reach Us
+  </Link>
+</motion.div>
           </motion.div>
         )}
       </AnimatePresence>
