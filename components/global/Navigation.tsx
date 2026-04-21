@@ -140,18 +140,16 @@ const Navigation = ({
           </div>
 
           {/* CTA */}
-          <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: navLinks.length * 0.05 }}
->
-  <Link
-    href="/contact"
-    className="inline-block mt-4 bg-orange-500 text-brand-obsidian px-8 py-3 font-body text-sm tracking-wide"
-  >
-    Reach Us
+         <div className="hidden lg:block">
+  <Link href="/contact">
+    <MagneticButton
+      className="bg-brand-navy text-brand-cream px-6 py-2.5 text-sm font-body tracking-wide hover:bg-brand-obsidian transition-colors"
+    >
+      Reach Us
+    </MagneticButton>
   </Link>
-</motion.div>
+</div>
+
           {/* MOBILE MENU BUTTON */}
           <button
             className="lg:hidden text-brand-navy"
