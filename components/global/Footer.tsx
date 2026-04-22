@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
 
               <a
                 href="mailto:ops@skyblue.aero"
-                className="group flex items-start gap-3"
+                className="group flex items-center gap-3"
               >
                 <div className=" flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all duration-300 group-hover:border-[#EF7D05]/30 group-hover:bg-[#EF7D05]/10">
                   <Mail className="h-4 w-4 text-[#EF7D05]" />
